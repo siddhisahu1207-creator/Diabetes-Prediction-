@@ -13,9 +13,12 @@ st.set_page_config(
 st.title("🩺 Diabetes Prediction System")
 
 st.write("Enter Patient Details")
+gender = st.radio("Gender", ("Male", "Female"))
+if gender == "Female":
+         pregnancies = st.number_input("Pregnancies", 0, 20)
 
-pregnancies = st.number_input("Pregnancies", 0, 20)
-
+else:
+    pregnancies = 0
 glucose = st.number_input("Glucose Level", 0, 300)
 
 blood_pressure = st.number_input("Blood Pressure", 0, 200)
