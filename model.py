@@ -19,18 +19,17 @@ if gender == "Female":
 
 else:
     pregnancies = 0
-glucose = st.number_input("Glucose Level", 0, 300)
+glucose = st.number_input("Glucose Level", 0, 300,90)
 
-blood_pressure = st.number_input("Blood Pressure", 0, 200)
+blood_pressure = st.number_input("Blood Pressure", 0, 200,80)
 
-skin_thickness = st.number_input("Skin Thickness", 0, 100)
+skin_thickness = st.number_input("Skin Thickness", 0, 100,22)
 
-insulin = st.number_input("Insulin", 0, 900)
+insulin = st.number_input("Insulin", 0, 900,80)
 
-bmi = st.number_input("BMI", 0.0, 70.0)
+bmi = st.number_input("BMI", 0.0, 70.0,23.5)
 
-dpf = st.number_input("Diabetes Pedigree Function",0.0,3.0)
-
+dpf = st.number_input("Diabetes Pedigree Function",0.0,3.0,0.25)
 age = st.number_input("Age", 1, 120)
 
 if st.button("Predict"):
