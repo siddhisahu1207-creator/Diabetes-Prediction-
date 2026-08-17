@@ -4,11 +4,11 @@ import joblib
 
 
 # ============================================================
-# PAGE CONFIG
+# PAGE CONFIGURATION
 # ============================================================
 
 st.set_page_config(
-    page_title="Diabetes Prediction",
+    page_title="Diabetes Prediction System",
     page_icon="🩺",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -43,7 +43,7 @@ st.markdown("""
 <style>
 
 /* =========================================================
-   MAIN PAGE
+   GLOBAL PAGE
 ========================================================= */
 
 .stApp {
@@ -54,10 +54,33 @@ st.markdown("""
     );
 }
 
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
 .main .block-container {
     padding-top: 2rem;
     padding-bottom: 3rem;
     max-width: 1200px;
+}
+
+
+/* =========================================================
+   ALL NORMAL MAIN TEXT
+========================================================= */
+
+.main p {
+    color: #111827 !important;
+}
+
+.main h1,
+.main h2,
+.main h3,
+.main h4,
+.main h5,
+.main h6 {
+    color: #111827 !important;
 }
 
 
@@ -73,8 +96,11 @@ st.markdown("""
     );
 
     padding: 35px 30px;
+
     border-radius: 22px;
+
     text-align: center;
+
     margin-bottom: 30px;
 
     box-shadow:
@@ -83,15 +109,21 @@ st.markdown("""
 
 .header-box h1 {
     color: white !important;
+
     font-size: 38px;
+
     font-weight: 800;
+
     margin: 0;
 }
 
 .header-box p {
     color: #eaf6ff !important;
+
     font-size: 17px;
+
     margin-top: 10px;
+
     margin-bottom: 0;
 }
 
@@ -102,12 +134,15 @@ st.markdown("""
 
 .section-header {
     background: white;
+
     border-left: 5px solid #0f766e;
 
     padding: 14px 18px;
+
     border-radius: 12px;
 
     margin-top: 22px;
+
     margin-bottom: 18px;
 
     box-shadow:
@@ -116,51 +151,82 @@ st.markdown("""
 
 .section-header h2 {
     color: #111827 !important;
+
     font-size: 21px;
+
     margin: 0;
 }
 
 .section-header p {
-    color: #6b7280 !important;
+    color: #4b5563 !important;
+
     font-size: 14px;
+
     margin: 5px 0 0 0;
 }
 
 
 /* =========================================================
-   LABELS
+   INPUT LABELS
 ========================================================= */
+
+[data-testid="stWidgetLabel"] {
+    color: #111827 !important;
+}
 
 [data-testid="stWidgetLabel"] p {
     color: #111827 !important;
+
     font-weight: 600 !important;
+
     font-size: 15px !important;
 }
 
 
 /* =========================================================
-   INPUT BOXES
+   NUMBER INPUT
 ========================================================= */
+
+[data-testid="stNumberInput"] {
+    color: #111827 !important;
+}
+
+[data-testid="stNumberInput"] label {
+    color: #111827 !important;
+}
 
 [data-testid="stNumberInput"] input {
     color: #111827 !important;
+
     background-color: white !important;
+
     font-size: 16px !important;
+
     font-weight: 500 !important;
 }
 
 [data-testid="stNumberInput"] > div {
     background-color: white !important;
+
     border-radius: 10px;
 }
 
 
 /* =========================================================
-   SELECTBOX
+   SELECT BOX
 ========================================================= */
+
+[data-testid="stSelectbox"] {
+    color: #111827 !important;
+}
+
+[data-testid="stSelectbox"] label {
+    color: #111827 !important;
+}
 
 [data-baseweb="select"] {
     background-color: white !important;
+
     border-radius: 10px;
 }
 
@@ -173,57 +239,29 @@ st.markdown("""
 }
 
 
-/* Dropdown */
+/* =========================================================
+   DROPDOWN
+========================================================= */
 
-[role="option"] {
-    color: #111827 !important;
+[role="listbox"] {
     background-color: white !important;
 }
 
+[role="option"] {
+    color: #111827 !important;
 
-/* =========================================================
-   BUTTON
-========================================================= */
-
-.stButton > button {
-    width: 100%;
-    min-height: 52px;
-
-    border-radius: 12px;
-
-    background: linear-gradient(
-        90deg,
-        #0f766e,
-        #2563eb
-    );
-
-    color: white !important;
-
-    border: none;
-
-    font-size: 17px;
-    font-weight: 700;
-
-    box-shadow:
-        0 6px 18px rgba(37, 99, 235, 0.20);
-
-    transition: all 0.2s ease;
+    background-color: white !important;
 }
 
-.stButton > button:hover {
-    transform: translateY(-2px);
+[role="option"]:hover {
+    background-color: #e5e7eb !important;
 
-    box-shadow:
-        0 9px 22px rgba(37, 99, 235, 0.30);
-}
-
-.stButton > button p {
-    color: white !important;
+    color: #111827 !important;
 }
 
 
 /* =========================================================
-   INFORMATION CARDS
+   BLOOD PRESSURE / INFORMATION CARDS
 ========================================================= */
 
 .info-card {
@@ -261,7 +299,7 @@ st.markdown("""
 
 
 /* =========================================================
-   RESULT
+   PREDICTION RESULT
 ========================================================= */
 
 .result-box {
@@ -290,9 +328,170 @@ st.markdown("""
 }
 
 .result-box p {
-    color: #4b5563 !important;
+    color: #374151 !important;
 
     font-size: 15px;
+}
+
+
+/* =========================================================
+   PREDICTION HEADINGS
+========================================================= */
+
+.prediction-heading {
+    color: #111827 !important;
+
+    font-size: 23px;
+
+    font-weight: 750;
+
+    margin-top: 25px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   STREAMLIT METRICS
+========================================================= */
+
+/* Metric label */
+
+[data-testid="stMetricLabel"] {
+    color: #374151 !important;
+}
+
+[data-testid="stMetricLabel"] p {
+    color: #374151 !important;
+
+    font-weight: 600 !important;
+}
+
+
+/* Metric value */
+
+[data-testid="stMetricValue"] {
+    color: #111827 !important;
+}
+
+[data-testid="stMetricValue"] div {
+    color: #111827 !important;
+}
+
+
+/* Metric delta */
+
+[data-testid="stMetricDelta"] {
+    color: #374151 !important;
+}
+
+
+/* =========================================================
+   PROGRESS BAR
+========================================================= */
+
+[data-testid="stProgressBar"] {
+    margin-top: 5px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================================================
+   ALERTS
+========================================================= */
+
+[data-testid="stAlert"] {
+    color: #111827 !important;
+}
+
+[data-testid="stAlert"] p {
+    color: #111827 !important;
+}
+
+[data-testid="stAlert"] span {
+    color: #111827 !important;
+}
+
+[data-testid="stAlert"] strong {
+    color: #111827 !important;
+}
+
+
+/* =========================================================
+   HEALTH SUMMARY
+========================================================= */
+
+.health-box {
+    background: white;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+.health-box h4 {
+    color: #0f766e !important;
+
+    margin-top: 0;
+}
+
+.health-box p {
+    color: #111827 !important;
+
+    margin: 8px 0;
+}
+
+
+/* =========================================================
+   PREDICTION BUTTON
+========================================================= */
+
+.stButton > button {
+    width: 100%;
+
+    min-height: 52px;
+
+    border-radius: 12px;
+
+    background: linear-gradient(
+        90deg,
+        #0f766e,
+        #2563eb
+    );
+
+    color: white !important;
+
+    border: none;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    box-shadow:
+        0 6px 18px rgba(37, 99, 235, 0.20);
+
+    transition: all 0.2s ease;
+}
+
+.stButton > button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 9px 22px rgba(37, 99, 235, 0.30);
+}
+
+.stButton > button p {
+    color: white !important;
+}
+
+.stButton > button span {
+    color: white !important;
 }
 
 
@@ -311,19 +510,11 @@ st.markdown("""
 [data-testid="stSidebar"] h1,
 [data-testid="stSidebar"] h2,
 [data-testid="stSidebar"] h3,
+[data-testid="stSidebar"] h4,
 [data-testid="stSidebar"] p,
 [data-testid="stSidebar"] span,
 [data-testid="stSidebar"] label {
     color: white !important;
-}
-
-
-/* =========================================================
-   ALERTS
-========================================================= */
-
-[data-testid="stAlert"] p {
-    color: #111827 !important;
 }
 
 
@@ -334,7 +525,7 @@ st.markdown("""
 .footer {
     text-align: center;
 
-    color: #6b7280 !important;
+    color: #374151 !important;
 
     padding: 25px;
 
@@ -347,13 +538,25 @@ st.markdown("""
     font-size: 16px;
 }
 
+.footer span {
+    color: #374151 !important;
+}
+
+
+/* =========================================================
+   DIVIDER
+========================================================= */
+
+hr {
+    border-color: #d1d5db !important;
+}
+
 </style>
 """, unsafe_allow_html=True)
 
 
 # ============================================================
 # HEADER
-# IMPORTANT: HTML STARTS AT COLUMN 1
 # ============================================================
 
 st.markdown("""
@@ -422,6 +625,10 @@ st.markdown("""
 col1, col2, col3 = st.columns(3)
 
 
+# ============================================================
+# GENDER
+# ============================================================
+
 with col1:
 
     gender = st.selectbox(
@@ -429,6 +636,10 @@ with col1:
         ["Male", "Female"]
     )
 
+
+# ============================================================
+# AGE
+# ============================================================
 
 with col2:
 
@@ -440,6 +651,10 @@ with col2:
         step=1
     )
 
+
+# ============================================================
+# PREGNANCIES
+# ============================================================
 
 with col3:
 
@@ -483,7 +698,7 @@ left, right = st.columns(2)
 
 
 # ============================================================
-# LEFT SIDE
+# LEFT COLUMN
 # ============================================================
 
 with left:
@@ -514,12 +729,15 @@ with left:
 
 
 # ============================================================
-# RIGHT SIDE
+# RIGHT COLUMN
 # ============================================================
 
 with right:
 
-    st.markdown("### 🩸 Blood Pressure")
+    st.markdown(
+        '<h3 style="color:#111827 !important;">🩸 Blood Pressure</h3>',
+        unsafe_allow_html=True
+    )
 
     bp1, bp2 = st.columns(2)
 
@@ -564,12 +782,14 @@ with right:
 # BLOOD PRESSURE SUMMARY
 # ============================================================
 
-st.markdown("""
-<div class="section-header">
-<h2>❤️ Blood Pressure Summary</h2>
-<p>Your entered blood pressure values.</p>
-</div>
-""", unsafe_allow_html=True)
+st.markdown(
+    '<h3 class="prediction-heading">❤️ Blood Pressure Summary</h3>',
+    unsafe_allow_html=True
+)
+
+st.caption(
+    "Your entered blood pressure values."
+)
 
 
 bp_col1, bp_col2, bp_col3 = st.columns(3)
@@ -665,7 +885,7 @@ st.info(
 
 
 # ============================================================
-# PREDICT BUTTON
+# PREDICTION BUTTON
 # ============================================================
 
 st.markdown("")
@@ -673,6 +893,7 @@ st.markdown("")
 button_left, button_center, button_right = st.columns(
     [1, 2, 1]
 )
+
 
 with button_center:
 
@@ -697,13 +918,21 @@ if predict:
 
     else:
 
-        # ----------------------------------------------------
+        # ====================================================
         # EXISTING MODEL HAS 8 FEATURES
         #
-        # BloodPressure in the original dataset is represented
-        # by one value. We use diastolic BP here so that the
-        # existing model remains compatible.
-        # ----------------------------------------------------
+        # 1. Pregnancies
+        # 2. Glucose
+        # 3. BloodPressure
+        # 4. SkinThickness
+        # 5. Insulin
+        # 6. BMI
+        # 7. DiabetesPedigreeFunction
+        # 8. Age
+        #
+        # The original dataset contains one BP feature.
+        # Diastolic BP is used for model compatibility.
+        # ====================================================
 
         data = np.array([
             [
@@ -719,23 +948,23 @@ if predict:
         ])
 
 
-        # ----------------------------------------------------
-        # SCALE
-        # ----------------------------------------------------
+        # ====================================================
+        # SCALE DATA
+        # ====================================================
 
         data_scaled = scaler.transform(data)
 
 
-        # ----------------------------------------------------
-        # PREDICT
-        # ----------------------------------------------------
+        # ====================================================
+        # MODEL PREDICTION
+        # ====================================================
 
         prediction = model.predict(data_scaled)[0]
 
 
-        # ----------------------------------------------------
-        # PROBABILITY
-        # ----------------------------------------------------
+        # ====================================================
+        # PREDICTION PROBABILITY
+        # ====================================================
 
         probability = model.predict_proba(data_scaled)[0]
 
@@ -748,12 +977,14 @@ if predict:
         # RESULT
         # ====================================================
 
-        st.markdown("""
-<div class="section-header">
-<h2>📊 Prediction Result</h2>
-<p>Estimated result generated by the machine learning model.</p>
-</div>
-""", unsafe_allow_html=True)
+        st.markdown(
+            '<h2 class="prediction-heading">📊 Prediction Result</h2>',
+            unsafe_allow_html=True
+        )
+
+        st.caption(
+            "Estimated result generated by the machine learning model."
+        )
 
 
         if prediction == 1:
@@ -776,10 +1007,13 @@ if predict:
 
 
         # ====================================================
-        # PROBABILITY
+        # PREDICTION PROBABILITY
         # ====================================================
 
-        st.markdown("### 📈 Prediction Probability")
+        st.markdown(
+            '<h3 class="prediction-heading">📈 Prediction Probability</h3>',
+            unsafe_allow_html=True
+        )
 
 
         probability_col1, probability_col2 = st.columns(2)
@@ -788,8 +1022,8 @@ if predict:
         with probability_col1:
 
             st.metric(
-                "No Diabetes",
-                f"{no_diabetes_probability:.2f}%"
+                label="No Diabetes",
+                value=f"{no_diabetes_probability:.2f}%"
             )
 
             st.progress(
@@ -806,8 +1040,8 @@ if predict:
         with probability_col2:
 
             st.metric(
-                "Diabetes",
-                f"{diabetes_probability:.2f}%"
+                label="Diabetes",
+                value=f"{diabetes_probability:.2f}%"
             )
 
             st.progress(
@@ -825,7 +1059,10 @@ if predict:
         # PATIENT SUMMARY
         # ====================================================
 
-        st.markdown("### 📋 Patient Summary")
+        st.markdown(
+            '<h3 class="prediction-heading">📋 Patient Summary</h3>',
+            unsafe_allow_html=True
+        )
 
 
         summary1, summary2, summary3, summary4 = st.columns(4)
@@ -834,32 +1071,32 @@ if predict:
         with summary1:
 
             st.metric(
-                "Age",
-                f"{age} years"
+                label="Age",
+                value=f"{age} years"
             )
 
 
         with summary2:
 
             st.metric(
-                "Glucose",
-                f"{glucose} mg/dL"
+                label="Glucose",
+                value=f"{glucose} mg/dL"
             )
 
 
         with summary3:
 
             st.metric(
-                "BMI",
-                f"{bmi:.1f}"
+                label="BMI",
+                value=f"{bmi:.1f}"
             )
 
 
         with summary4:
 
             st.metric(
-                "Blood Pressure",
-                f"{systolic}/{diastolic}"
+                label="Blood Pressure",
+                value=f"{systolic}/{diastolic}"
             )
 
 
@@ -867,7 +1104,10 @@ if predict:
         # HEALTH SUMMARY
         # ====================================================
 
-        st.markdown("### 💡 Health Summary")
+        st.markdown(
+            '<h3 class="prediction-heading">💡 Health Summary</h3>',
+            unsafe_allow_html=True
+        )
 
 
         health1, health2 = st.columns(2)
@@ -875,14 +1115,25 @@ if predict:
 
         with health1:
 
-            st.info(
+            st.markdown(
                 f"""
-**Blood Pressure:** {systolic}/{diastolic} mmHg
+<div class="health-box">
 
-**BMI:** {bmi:.1f} ({bmi_status})
+<h4>📋 Entered Health Information</h4>
 
-**Glucose:** {glucose} mg/dL
-"""
+<p><strong>Blood Pressure:</strong> {systolic}/{diastolic} mmHg</p>
+
+<p><strong>BMI:</strong> {bmi:.1f} ({bmi_status})</p>
+
+<p><strong>Glucose:</strong> {glucose} mg/dL</p>
+
+<p><strong>Insulin:</strong> {insulin} μU/mL</p>
+
+<p><strong>Age:</strong> {age} years</p>
+
+</div>
+""",
+                unsafe_allow_html=True
             )
 
 
@@ -892,9 +1143,10 @@ if predict:
 
                 st.warning(
                     """
-The model indicates a higher estimated risk.
-Consider discussing the result with a qualified
-healthcare professional.
+The model indicates a **higher estimated risk**.
+
+Consider discussing the result and your health
+measurements with a qualified healthcare professional.
 """
                 )
 
@@ -902,8 +1154,8 @@ healthcare professional.
 
                 st.success(
                     """
-The model indicates a lower estimated risk based
-on the information provided.
+The model indicates a **lower estimated risk**
+based on the information provided.
 """
                 )
 
