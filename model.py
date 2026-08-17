@@ -49,11 +49,13 @@ st.markdown("""
     .main-header h1 {
         margin: 0;
         font-size: 38px;
+        color:white;
     }
 
     .main-header p {
         margin-top: 8px;
         font-size: 17px;
+        color: white;
     }
 
     /* Section cards */
@@ -71,7 +73,36 @@ st.markdown("""
         font-weight: 700;
         margin-bottom: 15px;
     }
+    label,
+    [data-testid="stWidgetLabel"] p,
+    [data-testid="stWidgetLabel"] {
+        color: #000000 !important;
+        font-weight: 600 !important;
+    }
 
+    /* Input text */
+    input,
+    textarea {
+        color: #000000 !important;
+    }
+
+    /* Number input */
+    [data-testid="stNumberInput"] input {
+        color: #000000 !important;
+    }
+
+    /* Selectbox */
+    [data-baseweb="select"] * {
+        color: #000000 !important;
+    }
+
+    [data-testid="stSelectbox"] label {
+        color: #000000 !important;
+    }
+
+    [data-testid="stNumberInput"] label {
+        color: #000000 !important;
+    }
     /* Result card */
     .result-card {
         padding: 25px;
